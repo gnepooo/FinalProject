@@ -1,0 +1,21 @@
+﻿@model FinalProject.Models.Assignment
+
+<h2>Create New Assignment</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label>Title</label>
+        <input type="text" class="form-control" asp-for="Title" />
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" asp-for="Description"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Due Date</label>
+        <input type="date" class="form-control" asp-for="DueDate" />
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+<a asp-action="Index">Back to List</a>

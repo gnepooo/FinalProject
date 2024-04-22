@@ -1,0 +1,20 @@
+﻿@model FinalProject.Models.Quiz
+
+<h2>@Model.Title</h2>
+
+<form asp-action="Submit">
+    @foreach (var question in Model.Questions)
+    {
+        <h4>@question.Text</h4>
+        <div>
+            @foreach (var answer in question.Answers)
+            {
+                <input type="radio" name="question_@question.Id" value="@answer.Id" />
+                <label>@answer.Text</label>
+
+                <br />
+            }
+        </div>
+    }
+    <button type="submit">Submit</button>
+</form>

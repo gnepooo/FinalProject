@@ -1,0 +1,18 @@
+﻿@model List<FinalProject.Models.GroupProject>
+
+<h2>Group Projects</h2>
+
+<ul>
+    @foreach (var project in Model)
+    {
+        <li>
+            <h3>@project.Title</h3>
+            <p>@project.Description</p>
+            <p>Deadline: @project.Deadline.ToShortDateString()</p>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a asp-action="Join" asp-route-id="@project.Id">Join Project</a>
+            }
+        </li>
+    }
+</ul>

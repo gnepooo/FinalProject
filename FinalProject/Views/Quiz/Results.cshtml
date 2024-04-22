@@ -1,0 +1,16 @@
+﻿@model FinalProject.Models.QuizResult
+
+<h2>Quiz Results</h2>
+
+<h3>Score: @Model.Score</h3>
+
+<ul>
+    @foreach (var questionResult in Model.QuestionResults)
+    {
+        <li>
+            <strong>@questionResult.Question.Text</strong><br />
+            Your answer: @questionResult.UserAnswer<br />
+            Correct answer: @questionResult.Question.Answers.FirstOrDefault(a => a.IsCorrect)?.Text
+        </li>
+    }
+</ul>

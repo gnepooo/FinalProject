@@ -1,0 +1,10 @@
+﻿@model FinalProject.Models.StudyGroup
+
+<h2>Leave Study Group</h2>
+
+<p>Are you sure you want to leave the study group <strong>@Model.Name</strong>?</p>
+
+<form asp-action="Leave" asp-route-id="@Model.Id" method="post">
+    <button type="submit" class="btn btn-danger">Leave Group</button>
+    <a asp-action="Index">Cancel</a>
+</form>

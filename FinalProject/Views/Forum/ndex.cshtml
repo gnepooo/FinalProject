@@ -1,0 +1,17 @@
+﻿@model List<FinalProject.Models.ForumThread>
+
+<h2>Discussion Forum</h2>
+
+<ul>
+    @foreach (var thread in Model)
+    {
+        <li>
+            <h3>@thread.Title</h3>
+            <p>@thread.Content</p>
+            <p>Posted by: @thread.User.UserName</p>
+            <a asp-action="Details" asp-route-id="@thread.Id">View Thread</a>
+        </li>
+    }
+</ul>
+
+<a asp-action="Create">Create New Thread</a>

@@ -1,0 +1,68 @@
+﻿@model List<FinalProject.Models.LearningResource>
+
+<h2>Learning Resources</h2>
+
+<form asp-action="Index" method="get">
+    <div class="form-group">
+        <input type="text" name="searchString" class="form-control" placeholder="Search by title" />
+    </div>
+    <div class="form-group">
+        <select name="subject" class="form-control">
+            <option value="">Select Subject</option>
+            <option value="Math">Math</option>
+            <option value="Science">Science</option>
+            <!-- Add other subjects as needed -->
+        </select>
+    </div>
+    <div class="form-group">
+        <select name="gradeLevel" class="form-control">
+            <option value="">Select Grade Level</option>
+            <option value="1">Grade 1</option>
+            <option value="2">Grade 2</option>
+            <!-- Add other grade levels as needed -->
+        </select>
+    </div>
+    <div class="form-group">
+        <select name="resourceType" class="form-control">
+            <option value="">Select Resource Type</option>
+            <option value="Video">Video</option>
+            <option value="Document">Document</option>
+            <!-- Add other resource types as needed -->
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Filter</button>
+</form>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Subject</th>
+            <th>Grade Level</th>
+            <th>Resource Type</th>
+            <th>Teacher</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var resource in Model)
+        {
+            <tr>
+                <td>@resource.Title</td>
+                <td>@resource.Subject</td>
+                <td>@resource.GradeLevel</td>
+                <td>@resource.ResourceType</td>
+                <td>@resource.Teacher.Name</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@resource.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@resource.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@resource.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

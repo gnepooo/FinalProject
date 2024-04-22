@@ -1,0 +1,10 @@
+﻿@model FinalProject.Models.StudyGroup
+
+<h2>Join Study Group</h2>
+
+<p>Are you sure you want to join the study group <strong>@Model.Name</strong>?</p>
+
+<form asp-action="Join" asp-route-id="@Model.Id" method="post">
+    <button type="submit" class="btn btn-primary">Join Group</button>
+    <a asp-action="Index">Cancel</a>
+</form>

@@ -1,0 +1,35 @@
+﻿@model FinalProject.Models.LearningResource
+
+<h2>Edit</h2>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="Title" class="control-label"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Subject" class="control-label"></label>
+        <input asp-for="Subject" class="form-control" />
+        <span asp-validation-for="Subject" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="GradeLevel" class="control-label"></label>
+        <input asp-for="GradeLevel" class="form-control" />
+        <span asp-validation-for="GradeLevel" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ResourceType" class="control-label"></label>
+        <input asp-for="ResourceType" class="form-control" />
+        <span asp-validation-for="ResourceType" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="TeacherId" class="control-label"></label>
+        <select asp-for="TeacherId" class="form-control" asp-items="@(new SelectList(ViewBag.Teachers, "Id", "Name"))"></select>
+        <span asp-validation-for="TeacherId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+</form>
